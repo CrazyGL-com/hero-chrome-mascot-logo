@@ -1,0 +1,414 @@
+{
+	"name": "Chrome Mascot Logo",
+	"slug": "chrome-mascot-logo",
+	"version": 1,
+	"description": "Your logo or mascot reborn as a chunky Y2K chrome object floating over a sunset gradient with twinkling stars and slow anamorphic lens flares. Real PBR mirror metal lit by a procedural HDR environment.",
+	"dependencies": [
+		"three"
+	],
+	"authorName": "@ybouane",
+	"authorUrl": "https://x.com/ybouane",
+	"tags": [
+		"three",
+		"3d",
+		"chrome",
+		"y2k",
+		"logo",
+		"mascot",
+		"retro-future",
+		"stars",
+		"lens-flare",
+		"playful"
+	],
+	"category": "Playful",
+	"featured": true,
+	"poster": "/images/heroes/chrome-mascot-logo.png",
+	"install": {
+		"package": "@crazygl/hero-chrome-mascot-logo"
+	},
+	"config": {
+		"managedWidth": true,
+		"innerWidth": 1100,
+		"managedHeight": true,
+		"defaultHeight": 760,
+		"styleInheritance": "none",
+		"usesCanvas": true,
+		"usesWebGL": true,
+		"usesThree": true,
+		"pointerTracking": true,
+		"resizeTracking": true,
+		"interactive": true,
+		"supportsImages": true,
+		"supportsTransparency": false,
+		"supportsFontCustomization": true,
+		"interactivityModes": [
+			"pointer",
+			"none"
+		],
+		"interactivity": "pointer"
+	},
+	"customizer": {
+		"sections": [
+			{
+				"label": "Content",
+				"fields": [
+					{
+						"id": "contentType",
+						"label": "Content Type",
+						"type": "select",
+						"default": "heading",
+						"options": [
+							{
+								"label": "Heading",
+								"value": "heading"
+							},
+							{
+								"label": "Two Columns",
+								"value": "two-columns"
+							},
+							{
+								"label": "Custom",
+								"value": "custom"
+							}
+						]
+					},
+					{
+						"id": "heading",
+						"label": "Heading",
+						"type": "text",
+						"default": "Shiny\nnew era.",
+						"showWhen": {
+							"contentType": "heading"
+						}
+					},
+					{
+						"id": "subheading",
+						"label": "Subheading",
+						"type": "textarea",
+						"default": "Drop in your logo or mascot. We turn it into a chunky chrome object, light it like an album cover, and float it in front of a sunset full of stars.",
+						"showWhen": {
+							"contentType": "heading"
+						}
+					},
+					{
+						"id": "media",
+						"label": "Media",
+						"type": "media",
+						"default": "",
+						"showWhen": {
+							"contentType": "heading"
+						}
+					},
+					{
+						"id": "column1",
+						"label": "Column 1",
+						"type": "node",
+						"default": "<h2>Your logo, in chrome.</h2><p>Real PBR metal. Real HDR reflections. Maximum Y2K.</p>",
+						"showWhen": {
+							"contentType": "two-columns"
+						}
+					},
+					{
+						"id": "column2",
+						"label": "Column 2",
+						"type": "node",
+						"default": "<h2>Album-cover energy.</h2><p>Twinkling stars and anamorphic flares included.</p>",
+						"showWhen": {
+							"contentType": "two-columns"
+						}
+					},
+					{
+						"id": "content",
+						"label": "Content",
+						"type": "node",
+						"default": "<h1>Chrome.</h1><p>Your mark, polished to a mirror.</p>",
+						"showWhen": {
+							"contentType": "custom"
+						}
+					}
+				]
+			},
+			{
+				"label": "Logo",
+				"fields": [
+					{
+						"id": "logo",
+						"label": "Logo (SVG / PNG / GLB / GLTF)",
+						"type": "media",
+						"default": "https://crazygl.com/samples/logo-shape1.png",
+						"description": "SVG / PNG / GLB / GLTF. SVG and PNG silhouettes are extruded into a chunky bevelled chrome shape. GLB or GLTF places your real 3D model directly."
+					},
+					{
+						"id": "useGlbMaterials",
+						"label": "Keep GLB Materials",
+						"type": "toggle",
+						"default": false,
+						"description": "When the logo is a GLB/GLTF file, keep its authored PBR materials. Turn off to override every mesh with the chrome material below."
+					},
+					{
+						"id": "bevelDepth",
+						"label": "Bevel Chunkiness",
+						"type": "slider",
+						"default": 0.25,
+						"min": 0.1,
+						"max": 1,
+						"step": 0.01,
+						"description": "Only affects SVG/PNG silhouettes (ignored for GLB/GLTF). Bigger bevel = chunkier Y2K shape. Sweet spot 0.4\u20130.7."
+					},
+					{
+						"id": "logoColor",
+						"label": "Chrome Tint",
+						"type": "color",
+						"default": "#f6f8fc",
+						"description": "F0 \u2014 the metal's reflection tint. Pure white = neutral mirror; warm whites read as warmer chrome.",
+						"showWhen": {
+							"useGlbMaterials": false
+						}
+					},
+					{
+						"id": "logoMetalness",
+						"label": "Metalness",
+						"type": "slider",
+						"default": 0.92,
+						"min": 0.85,
+						"max": 1,
+						"step": 0.005,
+						"description": "1.0 = pure mirror chrome (default). Below 0.95 looks muddy.",
+						"showWhen": {
+							"useGlbMaterials": false
+						}
+					},
+					{
+						"id": "logoRoughness",
+						"label": "Roughness",
+						"type": "slider",
+						"default": 0.125,
+						"min": 0.02,
+						"max": 0.3,
+						"step": 0.005,
+						"description": "0.02\u20130.10 = polished chrome. 0.15+ starts to look brushed.",
+						"showWhen": {
+							"useGlbMaterials": false
+						}
+					},
+					{
+						"id": "clearcoatStrength",
+						"label": "Clearcoat",
+						"type": "slider",
+						"default": 1.0,
+						"min": 0,
+						"max": 1,
+						"step": 0.01,
+						"description": "Thin dielectric layer over the metal \u2014 adds an extra polished highlight. 1.0 = full polish.",
+						"showWhen": {
+							"useGlbMaterials": false
+						}
+					}
+				]
+			},
+			{
+				"label": "Layout & Motion",
+				"fields": [
+					{
+						"id": "layout",
+						"label": "Layout",
+						"type": "select",
+						"default": "content-left",
+						"options": [
+							{
+								"label": "Logo centered",
+								"value": "centered"
+							},
+							{
+								"label": "Logo right, content left",
+								"value": "content-left"
+							},
+							{
+								"label": "Logo left, content right",
+								"value": "content-right"
+							}
+						]
+					},
+					{
+						"id": "logoScale",
+						"label": "Logo Scale",
+						"type": "slider",
+						"default": 0.87,
+						"min": 0.4,
+						"max": 1.8,
+						"step": 0.01
+					},
+					{
+						"id": "pointerStrength",
+						"label": "Pointer Parallax",
+						"type": "slider",
+						"default": 1.0,
+						"min": 0,
+						"max": 1.6,
+						"step": 0.02,
+						"description": "Drives logo yaw \u00b115\u00b0 and pitch \u00b110\u00b0 at strength 1.0."
+					},
+					{
+						"id": "autoRotateSpeed",
+						"label": "Auto-Rotate Speed",
+						"type": "slider",
+						"default": 0.045,
+						"min": 0,
+						"max": 0.3,
+						"step": 0.005,
+						"unit": "rad/s",
+						"description": "0 = static (default). Increase for continuous Y-axis spin (0.05\u20130.15 is a tasteful drift)."
+					}
+				]
+			},
+			{
+				"label": "Reflections & Background",
+				"fields": [
+					{
+						"id": "envPreset",
+						"label": "HDR Preset",
+						"type": "select",
+						"default": "Sunset",
+						"options": [
+							{
+								"label": "Sunset (pink/gold)",
+								"value": "Sunset"
+							},
+							{
+								"label": "Cyber (cyan/magenta)",
+								"value": "Cyber"
+							},
+							{
+								"label": "Cream (soft warm)",
+								"value": "Cream"
+							}
+						],
+						"description": "Selects the procedural HDR environment the chrome reflects."
+					},
+					{
+						"id": "envMapIntensity",
+						"label": "Reflection Intensity",
+						"type": "slider",
+						"default": 1.4,
+						"min": 0.5,
+						"max": 2.5,
+						"step": 0.01,
+						"description": "Multiplier on the env map. 1.4 default \u2014 HDR boost so the bright softboxes punch through as real specular hotspots."
+					},
+					{
+						"id": "bgStyle",
+						"label": "Background Style",
+						"type": "select",
+						"default": "sunset-chrome",
+						"options": [
+							{
+								"label": "Sunset Chrome",
+								"value": "sunset-chrome"
+							},
+							{
+								"label": "Cyber Magenta",
+								"value": "cyber-magenta"
+							},
+							{
+								"label": "Cream Pearl",
+								"value": "cream-pearl"
+							}
+						],
+						"description": "Y2K animated backdrop preset. Slow drifting chrome bands, pulsing radial blobs, and a top sun-streak \u2014 independent of the HDR Preset (which controls the chrome reflections)."
+					},
+					{
+						"id": "bgMotion",
+						"label": "Background Motion",
+						"type": "slider",
+						"default": 1.0,
+						"min": 0,
+						"max": 2.0,
+						"step": 0.02,
+						"description": "Speed multiplier for the background animation. 0 freezes it; 1 is the tasteful default 40\u201360s macro cycle."
+					},
+					{
+						"id": "gradientTop",
+						"label": "Gradient Top-Left",
+						"type": "color",
+						"default": "#5beaff"
+					},
+					{
+						"id": "gradientMiddle",
+						"label": "Gradient Middle",
+						"type": "color",
+						"default": "#ff5fb1"
+					},
+					{
+						"id": "gradientBottom",
+						"label": "Gradient Bottom-Right",
+						"type": "color",
+						"default": "#ffc56b"
+					}
+				]
+			},
+			{
+				"label": "Stars",
+				"fields": [
+					{
+						"id": "starCount",
+						"label": "Star Count",
+						"type": "slider",
+						"default": 40,
+						"min": 0,
+						"max": 100,
+						"step": 1
+					},
+					{
+						"id": "starColor",
+						"label": "Star Color",
+						"type": "color",
+						"default": "#fff7e6"
+					},
+					{
+						"id": "starDriftSpeed",
+						"label": "Star Drift Speed",
+						"type": "slider",
+						"default": 0.4,
+						"min": 0,
+						"max": 2,
+						"step": 0.02
+					}
+				]
+			},
+			{
+				"label": "Lens Flares",
+				"fields": [
+					{
+						"id": "flareStrength",
+						"label": "Flare Strength",
+						"type": "slider",
+						"default": 0.6,
+						"min": 0,
+						"max": 1.4,
+						"step": 0.02
+					},
+					{
+						"id": "flareColor",
+						"label": "Flare Color",
+						"type": "color",
+						"default": "#fff2c8"
+					}
+				]
+			},
+			{
+				"label": "Typography",
+				"fields": [
+					{
+						"id": "headingFontFamily",
+						"label": "Heading Font",
+						"type": "font",
+						"default": "Inherit",
+						"showWhen": {
+							"contentType": "heading"
+						}
+					}
+				]
+			}
+		]
+	}
+}
