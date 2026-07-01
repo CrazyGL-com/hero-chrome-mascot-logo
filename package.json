@@ -1,7 +1,7 @@
 {
 	"name": "@crazygl/hero-chrome-mascot-logo",
-	"version": "0.1.0",
-	"description": "Chrome Mascot Logo — your logo or mascot turned into a chunky Y2K chrome object floating over a sunset gradient with twinkling stars and anamorphic lens flares.",
+	"version": "0.1.1",
+	"description": "Chrome Mascot Logo — Your logo or mascot reborn as a chunky Y2K chrome object floating over a sunset gradient with twinkling stars and slow anamorphic lens flares. Real PBR mirror metal lit by a procedural HDR… A customizable CrazyGL animated hero section — WebGL, React, drop-in.",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
@@ -21,7 +21,7 @@
 		"LICENSE"
 	],
 	"dependencies": {
-		"@crazygl/core": "^0.1.0",
+		"@crazygl/core": "^0.1.1",
 		"three": "^0.184.0"
 	},
 	"peerDependencies": {
@@ -37,5 +37,33 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"keywords": [
+		"three",
+		"3d",
+		"chrome",
+		"y2k",
+		"logo",
+		"mascot",
+		"retro-future",
+		"stars",
+		"lens-flare",
+		"playful",
+		"chrome-mascot-logo",
+		"crazygl",
+		"hero",
+		"hero-section",
+		"webgl",
+		"react",
+		"animation",
+		"ui",
+		"landing-page",
+		"interactive",
+		"frontend",
+		"component",
+		"canvas"
+	],
+	"bugs": {
+		"url": "https://github.com/crazygl-com/hero-chrome-mascot-logo/issues"
 	}
 }

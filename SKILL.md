@@ -3,7 +3,7 @@ name: chrome-mascot-logo
 description: "Your logo or mascot reborn as a chunky Y2K chrome object floating over a sunset gradient with twinkling stars and slow anamorphic lens flares. Real PBR mirror metal lit by a procedural HDR environment."
 metadata:
   author: "@ybouane"
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 ## How To Use This Skill
